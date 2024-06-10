@@ -1,0 +1,27 @@
+{% extends 'bases.html' %}
+
+{% block title %} 
+    {{ title }} 
+{%endblock %} 
+
+{% block content %}
+<h1 align="center"> Обувь </h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th class='col'>Наименование</th>
+                    <th class='col'>Цена</th>
+                    <th class='col'>Количество</th>
+                </tr>
+            </thead>
+        {% for items in shoes %}
+            <tr>
+                <td>{{ items.name }}</td>
+                <td>{{ items.price }}</td>
+                <td>{{ items.amount }}</td>
+            </tr>
+        {% endfor %}
+        </table>  
+    </div>
+{% endblock %}
