@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    {{ title }} 
+{%endblock %} 
+
+{%block content%}
+
+<form method="post">
+    <label for="inputText">Имя</label>
+    <input type="text" id="login" name='name'>
+    <label for="inputemail">E-mail</label>
+    <input type="email" id="inputemail" name='email'>
+    <br>
+    <br>
+    <button type="submit">Ввести</button>
+</form>
+
+{%endblock%}
