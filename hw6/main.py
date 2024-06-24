@@ -14,6 +14,8 @@
 
 import uvicorn
 from users_routers import router as users_routers
+from product_routers import router as product_routers
+from order_router import router as order_routers
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from db import db
@@ -29,11 +31,12 @@ async def startup():
 async def shutdown():
     await db.disconnect()
 
-# Создем объект FastAPI с lifespan
-
 
 # Регистрируем роутеры
 app.include_router(users_routers, tags=["users"])
+app.include_router(product_routers, tags=["product"])
+app.include_router(order_routers, tags=["orders"])
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
